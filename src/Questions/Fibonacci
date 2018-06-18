@@ -1,0 +1,8 @@
+Pretty straight forward, Calculate the nth 
+Fibonacci number
+
+**input**
+The first line of input will have the number N.
+
+**Output**
+the nth value
