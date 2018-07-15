@@ -1,0 +1,20 @@
+You are a mouse that lives in a cage in a large laboratory. 
+The laboratory is composed of one rectangular grid of square cages, 
+with a total of R rows and C columns of cages 
+( 1 <= R , C <= 25).
+
+To get your exercise, the laboratory owners allow you to move between cages.
+You can move between cages either by moving right between two adjacent cages
+in the same row, or by moving down between two adjacent cages in the same column.
+You cannot move diagonally, left or up.
+
+Your cage is in one corner of the laboratory,
+which has the label (1, 1)
+(to indicate top-most row, left-most column).
+You would like to visit your brother who lives in the cage labelled ( R , C )
+(bottom-most row, right-most column), which is in the other corner diagonally.
+However, there are some cages which you cannot pass through, since they contain cats.
+
+Your brother, who loves numbers, would like to know how many different paths there are 
+between your cage and his that do not pass through any cat cage. Write a program to compute 
+this number of cat-free paths.

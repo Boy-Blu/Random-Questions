@@ -3,12 +3,13 @@ package Questions;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
 import java.util.*;
 
 
 public class Fibonacci {
-	static Hashtable<Long, Long> numbers = new Hashtable<Long, Long>();
-	public static long solve(long n){
+	static Hashtable<BigInteger, Long> numbers = new Hashtable<BigInteger, Long>();
+	public static long solve(BigInteger n){
 		try{
 			long sol = numbers.get(n);
 			return sol;
@@ -16,20 +17,24 @@ public class Fibonacci {
 
 
 		//Dijkstrsa method
-		if(n==0){
+		if(n.compareTo(BigInteger.ZERO)==0){
 			return 0;
-		}else if(n==1){
+		}else if(n.compareTo(BigInteger.ONE)==0){
 			return 1;
 		}else{
 			long ans = 0;
-			if(n%2==0){
+			if(n.remainder(new BigInteger("2")).compareTo(BigInteger.ZERO)==0){
 				//Case of even
-				long val = n/2;
-				ans = (2*solve(val-1)+solve(val))*solve(val);
+				BigInteger val = n.divide(new BigInteger("2"));
+				
+				
+				
+				
+				ans = (2*solve(val.subtract(BigInteger.ONE))+solve(val))*solve(val);
 
 			}else{
-				long val = (n+1)/2;
-				ans = solve(val-1)*solve(val-1) + solve(val)*solve(val);
+				BigInteger val = (n.add(BigInteger.ONE)).divide(new BigInteger("2"));
+				ans = solve(val.subtract(BigInteger.ONE))*solve(val.subtract(BigInteger.ONE)) + solve(val)*solve(val);
 			}
 			ans %= 1000000007;
 			numbers.put(n,ans);
@@ -40,7 +45,7 @@ public class Fibonacci {
 		// TODO Auto-generated method stub
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		String amount = in.readLine();
-		long N = Long.parseLong(amount);
+		BigInteger N = new BigInteger(amount,10);
 		long sol = solve(N) % 1000000007;
 		System.out.println(sol);
 
